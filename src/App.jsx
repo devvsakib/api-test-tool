@@ -21,7 +21,8 @@ function App() {
   const handleOptionClick = (option) => {
     setActiveOption(option);
   };
-  const data = [
+
+  const [data, setData] = useState([
     {
       username: "devvsakib2",
       password: "sdf",
@@ -32,12 +33,17 @@ function App() {
       password: "sdf",
       name: "Sakib Ahmed"
     }
-  ]
-
+  ]);
 
   const getAPIUrl = url => {
     console.log(url);
   }
+
+  const handleResponse = (responseData) => {
+    setData(responseData);
+  }
+  const [fields, setFields] = useState([{ name: '', value: '' }]);
+
 
 
   return (
@@ -45,14 +51,13 @@ function App() {
       <Layout>
         <Header />
         <HttpMethod methods={methods} onClick={handleMethodClick} activeMethod={activeMethod} />
-        <API getAPIUrl={getAPIUrl} />
+        <API getAPIUrl={getAPIUrl} handleResponse={handleResponse} />
         <HttpMethod options={options} onClick={handleOptionClick} activeOption={activeOption} />
         <div className='mb-10 mt-4 grid grid-cols-1 md:grid-cols-2 gap-10'>
-          <InputData activeOption={activeOption} />
+          <InputData activeOption={activeOption} setFields={setFields} />
           <Response data={data} />
         </div>
       </Layout>
-
     </div>
   )
 }
