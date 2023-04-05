@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Body from "../Input/Body"
 import { KeyValueInput, BodyInput } from "../Input/KeyValueInput"
 import "./style.css"
 const InputData = ({activeOption}) => {

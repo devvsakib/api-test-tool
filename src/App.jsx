@@ -51,7 +51,7 @@ function App() {
       <Layout>
         <Header />
         <HttpMethod methods={methods} onClick={handleMethodClick} activeMethod={activeMethod} />
-        <API getAPIUrl={getAPIUrl} handleResponse={handleResponse} />
+        <API getAPIUrl={getAPIUrl} activeMethod={activeMethod} handleResponse={handleResponse} />
         <HttpMethod options={options} onClick={handleOptionClick} activeOption={activeOption} />
         <div className='mb-10 mt-4 grid grid-cols-1 md:grid-cols-2 gap-10'>
           <InputData activeOption={activeOption} setFields={setFields} />
