@@ -1,7 +1,17 @@
+import Body from "../Input/Body"
+import Headers from "../Input/Headers"
+import Params from "../Input/Params"
 import "./style.css"
-const InputData = () => {
+const InputData = ({ activeOption }) => {
   return (
-    <textarea className="w-full p-5 bg-inputbg backdrop-blur-[2.5px] min-h-[250px] rounded-md ttt outline-none" />
+    <div>
+      {
+        activeOption === "headers" ?
+          <Headers />
+          : activeOption === "params" ? <Params />
+            : <Body />
+      }
+    </div>
   )
 }
 
