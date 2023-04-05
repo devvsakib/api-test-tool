@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #03081A;
+  --secondary-color: #05FF00;
+  --tertiary-color: #D9D9D950;
+  --primary-font: 'Barlow';
+  --transparent-bg: #D9D9D915;
+  --input-bg: rgba(217, 217, 217, 0.05);
+  --active-transparent-bg: #0000003b;
+}
+
+body {
+  background: url("/assets/bg.png") center center, linear-gradient(192.02deg, #03081A 0%, #030F34 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Barlow';
+  color: #fff;
+}
+
+.httpMethodDark {
+  @apply text-white font-bold uppercase bg-btnbg px-4 py-2 rounded-md;
+}
+
+.httpDarkLight {
+  @apply text-black font-bold;
+}
+
+.httpOptionDark {
+  @apply text-white  uppercase bg-btnbg px-4 py-2 rounded-md;
+}
+
+.httpOptionLight {
+  @apply text-black;
+}
+
+.activeBG {
+  @apply bg-activebtnbg bg-gradient-to-tr from-slate-500;
+}
+
+.inpbg{
+  @apply bg-inputbg placeholder:text-tertiary text-center w-full py-2 px-5 my-5 rounded-l-md backdrop-blur-[2.5px] outline-none;
+}
