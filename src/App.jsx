@@ -10,6 +10,8 @@ import Response from './components/ResponseArea/Response'
 function App() {
   const methods = ["get", "post", "put", "patch", "delete"]
   const options = ["body", "params", "headers"]
+  const [fields, setFields] = useState([{ name: '', value: '' }]);
+  const [apiUrl, setApiUrl] = useState({ get: "", post: "", put: "", patch: "", delete: "" })
 
   const [activeMethod, setActiveMethod] = useState(methods[0]);
   const [activeOption, setActiveOption] = useState(options[0]);
@@ -35,14 +37,12 @@ function App() {
     }
   ]);
 
-  const getAPIUrl = url => {
-    console.log(url);
-  }
+  const getAPIUrl = () => console.log(apiUrl[activeMethod]);
 
   const handleResponse = (responseData) => {
     setData(responseData);
   }
-  const [fields, setFields] = useState([{ name: '', value: '' }]);
+
 
 
 
@@ -51,7 +51,7 @@ function App() {
       <Layout>
         <Header />
         <HttpMethod methods={methods} onClick={handleMethodClick} activeMethod={activeMethod} />
-        <API getAPIUrl={getAPIUrl} activeMethod={activeMethod} handleResponse={handleResponse} />
+        <API setApiUrl={setApiUrl} apiUrl={apiUrl} getAPIUrl={getAPIUrl} activeMethod={activeMethod} handleResponse={handleResponse} />
         <HttpMethod options={options} onClick={handleOptionClick} activeOption={activeOption} />
         <div className='mb-10 mt-4 grid grid-cols-1 md:grid-cols-2 gap-10'>
           <InputData activeOption={activeOption} setFields={setFields} />

@@ -1,7 +1,5 @@
 import { useState } from "react"
-const API = ({ getAPIUrl, activeMethod }) => {
-  const [apiUrl, setApiUrl] = useState({ get: "", post: "", put: "", patch: "", delete: "" })
-
+const API = ({ getAPIUrl, activeMethod, apiUrl, setApiUrl }) => {
   const handleUrlChange = (e) => {
     const { name, value } = e.target;
     setApiUrl({ ...apiUrl, [name]: value });
